@@ -25,8 +25,6 @@ environ.Env.read_env()
 
 POSTGRES_KEY = env('POSTGRES_KEY')
 SECRET_KEY = env('SECRET_KEY')
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@ev^gk98_gm(gb=4)5n$%ruhggn$5b9r4tbh_)ah%8@zv9+4h4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
