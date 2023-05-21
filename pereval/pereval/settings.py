@@ -74,8 +74,7 @@ WSGI_APPLICATION = 'pereval.wsgi.application'
 env = environ.Env()
 environ.Env.read_env()
 
-SOCIAL_AUTH_VK_OAUTH2_KEY = env('SOCIAL_AUTH_VK_OAUTH2_KEY')
-SOCIAL_AUTH_VK_OAUTH2_SECRET = env('SOCIAL_AUTH_VK_OAUTH2_SECRET')
+POSTGRES_KEY = env('POSTGRES_KEY')
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -85,12 +84,11 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': SOCIAL_AUTH_VK_OAUTH2_KEY,
+        'PASSWORD': POSTGRES_KEY,
         'HOST': 'localhost',
         'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
