@@ -12,6 +12,9 @@ class Coords(models.Model):
     longitude = models.FloatField()
     height = models.IntegerField()
 
+    def __str__(self):
+        return f'координаты: {self.latitude}, {self.longitude}, высота: {self.height}'
+
 
 class Passage(models.Model):
     LVL = (('1a', '1A'),
@@ -34,9 +37,12 @@ class Passage(models.Model):
     beauty_title = models.CharField(max_length=255)
     title = models.CharField(max_length=255)
     other_titles = models.CharField(max_length=255)
-    connect = models.TextField()
+    connect = models.TextField(blank=True)
     add_time = models.DateTimeField(auto_now_add=True)
     coords = models.OneToOneField(Coords, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.connect.join([self.beauty_title, self.title, self.other_titles])}"
 
 
 class Photo(models.Model):
