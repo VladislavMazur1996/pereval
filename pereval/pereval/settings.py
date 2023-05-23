@@ -23,7 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env()
 environ.Env.read_env()
 
-POSTGRES_KEY = env('POSTGRES_KEY')
+FSTR_DB_HOST = env('FSTR_DB_HOST')
+FSTR_DB_PORT = env('FSTR_DB_PORT')
+FSTR_DB_LOGIN = env('FSTR_DB_LOGIN')
+FSTR_DB_PASS = env('FSTR_DB_PASS')
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -42,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'points',
 ]
 
 MIDDLEWARE = [
@@ -84,10 +88,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': POSTGRES_KEY,
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'USER': FSTR_DB_LOGIN,
+        'PASSWORD': FSTR_DB_PASS,
+        'HOST': FSTR_DB_HOST,
+        'PORT': FSTR_DB_PORT,
     }
 }
 

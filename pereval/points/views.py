@@ -1,3 +1,6 @@
-from django.shortcuts import render
+from rest_framework import generics
+from .serializers import PassageDetailSerializer
 
-# Create your views here.
+
+class PassageCreateView(generics.CreateAPIView):
+    serializer_class = PassageDetailSerializer
