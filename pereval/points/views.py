@@ -12,7 +12,7 @@ class PassageListView(generics.ListAPIView):
     queryset = Passage.objects.all()
 
 
-class PassageDetailView(generics.RetrieveAPIView):
+class PassageDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PassageDetailSerializer
     queryset = Passage.objects.all()
 
