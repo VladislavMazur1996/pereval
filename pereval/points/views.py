@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework import generics, status
 from rest_framework.exceptions import ValidationError
 from rest_framework.response import Response
@@ -53,3 +52,15 @@ class CoordsUpdateView(generics.RetrieveUpdateAPIView):
 
 class PhotoUpdateView(generics.RetrieveUpdateAPIView):
     serializer_class = PhotoDetailSerializer
+
+
+class PurchaseList(generics.ListAPIView):
+    serializer_class = PassageDetailSerializer
+
+    def get_queryset(self):
+        """
+        This view should return a list of all the purchases for
+        the user as determined by the username portion of the URL.
+        """
+        email = self.kwargs['email']
+        return Passage.objects.filter(user__email=email)
