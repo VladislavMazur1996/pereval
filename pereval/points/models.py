@@ -6,6 +6,9 @@ class Users(User):
     patronymic = models.CharField(max_length=255)
     phone = models.CharField(max_length=12)
 
+    def __str__(self):
+        return f'{self.first_name} {self.last_name}'
+
 
 class Coords(models.Model):
     latitude = models.FloatField()
@@ -40,6 +43,7 @@ class Passage(models.Model):
     connect = models.TextField(blank=True)
     add_time = models.DateTimeField(auto_now_add=True)
     coords = models.OneToOneField(Coords, on_delete=models.CASCADE)
+    user = models.ForeignKey(Users, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.connect.join([self.beauty_title, self.title, self.other_titles])}"

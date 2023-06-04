@@ -12,7 +12,13 @@ class PassageDetailSerializer(serializers.ModelSerializer):
 class UsersDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Users
-        fields = '__all__'
+        fields = [
+            'first_name',
+            'last_name',
+            'patronymic',
+            'email',
+            'phone',
+        ]
 
 
 class CoordsDetailSerializer(serializers.ModelSerializer):
