@@ -1,0 +1,13 @@
+{
+    "builds": [{
+        "src": "pereval/wsgi.py",
+        "use": "@vercel/python",
+        "config": { "maxLambdaSize": "15mb", "runtime": "python4.1" }
+    }],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "pereval/wsgi.py"
+        }
+    ]
+}
