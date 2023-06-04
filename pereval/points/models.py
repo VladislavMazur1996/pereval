@@ -50,7 +50,7 @@ class Passage(models.Model):
 
 
 class Photo(models.Model):
-    passage = models.ForeignKey(Passage, on_delete=models.CASCADE)
+    passage = models.ManyToManyField(Passage)
     image = models.ImageField(blank=True)
     name = models.CharField(max_length=255)
 
