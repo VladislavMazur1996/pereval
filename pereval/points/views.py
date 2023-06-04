@@ -10,11 +10,6 @@ class PassageCreateView(generics.CreateAPIView):
     serializer_class = PassageDetailSerializer
 
 
-class PassageListView(generics.ListAPIView):
-    serializer_class = PassageDetailSerializer
-    queryset = Passage.objects.all()
-
-
 class PassageDetailView(generics.RetrieveAPIView):
     serializer_class = PassageDetailSerializer
     queryset = Passage.objects.all()
@@ -54,7 +49,7 @@ class PhotoUpdateView(generics.RetrieveUpdateAPIView):
     serializer_class = PhotoDetailSerializer
 
 
-class PurchaseList(generics.ListAPIView):
+class PassageListView(generics.ListAPIView):
     serializer_class = PassageDetailSerializer
 
     def get_queryset(self):
